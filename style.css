@@ -41,7 +41,7 @@ main{
     /* min-height: 100vh; */
     margin: 0 auto;
     border: 1px solid green;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 3fr 1.2fr;
     grid-template-rows: 1fr 10fr;
     grid-auto-rows: 1fr;
     grid-auto-columns: 1fr;
@@ -53,7 +53,7 @@ main{
 header {
     background-color: #fafafa;
     border: 1px solid blue;
-    grid-column: 2/3;
+    grid-column: 2/4;
     grid-row: 1/2;
     display: grid;
     grid-template-rows: repeat(2,1fr);
@@ -74,17 +74,61 @@ header {
     grid-row: 1/3;
     background-color: #0284c7;
     color: #fafafa;
+    padding: 1.5rem 1rem;
+    
+    
 }
+
+.logo-container {
+    grid-row: 1/2;
+    display: flex;
+    gap: 1.5rem;
+    align-items: end;
+    padding-bottom: 2rem;
+    
+}
+.logo-container>svg{
+    width: 50px;
+    height: auto;
+}
+
+.dash__item-one, .dash__item-two {
+    display: flex;
+    
+}
+.dash__item-one>ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    align-items: start;
+    padding-bottom: 5rem;
+}
+
+.dash__item-one>ul>li i,.dash__item-two>ul>li i {
+   padding-right: 1rem;
+}
+.dash__item-two>ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    align-items: start;
+}
+
 
 /* --------------Content Section ---------------------------- */
 .content-section {
     background-color: #e2e8f0;
-}
+    grid-column: 2/3;
+   
+   
 
-/* ------------------content section----------- */
+}
 
 .cards-section {
     display: grid;
+   
     grid-template-columns: repeat(auto-fill,minmax(16rem,1fr));
     grid-template-rows: repeat(auto-fill,minmax(16rem,1fr));
     gap: 1rem;
@@ -95,4 +139,18 @@ header {
 .card{
     background-color: #fafafa;
     border: 1px dotted lightcoral;
+}
+
+.news-section {
+    grid-column: 3/4;
+}
+.news-cards {
+    background-color: #fafafa;
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    gap: 1rem;
+    
+}
+.anmc-card:not(:last-child){
+    border-bottom:1px solid #d1d5db;
 }
