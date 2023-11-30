@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -52,11 +53,11 @@ a {
 main {
     display: grid;
     max-width: 1591px;
-    min-height: 100vh;
     margin: 0 auto;
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 10fr;
     grid-auto-rows: 1fr;
+    box-shadow:  0 10px 20px rgba(107, 114, 128, 0.25);
     /* grid-auto-columns: 1fr; */
 }
 
@@ -76,27 +77,82 @@ header {
 .header-section-two {
     display: flex;
     justify-content: space-between;
+    padding: 0.5rem 0;
 }
+
 
 .search-field {
     display: flex;
     align-items: center;
     gap: 1rem;
+    width: 60%;
+    position: relative;
 }
 .search-field input {
-    width:400px ;
-    height: 25px;
+    width: clamp(200px, 60%, 500px);
+    height: 2rem;
     border-radius: 15px;
     background-color:#e2e8f0 ;
-    outline: 1px solid #6b7280;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    transition: border-bottom 0.3s ease, background-color 0.3s ease; /* Added background transition */
+    position: relative;
+    z-index: 1;
     
 }
 
+.search-field input:focus {
+    background-color: #FFFFFF;
+    border: 1px solid #6b7280;
+}
+.title-field {
+    width: 30%;
+}
+.title-field ul {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    
+}
+.title-field ul>li:first-child {
+    padding-right: 1.2rem;
+} 
+
+.header-two {
+    gap: 2rem;
+}
+.header-two .logo-img svg {
+    width: 60px;
+   
+}
 .header-two,
 .title-field ul,
 .header-menu ul {
     display: flex;
 
+}
+.title-two h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.header-menu ul {
+    gap: 1.5rem;
+    padding:1rem 1rem ;
+}
+.header-menu ul li {
+    padding: 0.5rem 1.8rem;
+    background-color: #0284c7;
+    color: #fafafa;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.header-menu ul li:hover {
+    background-color:#075985 ;
 }
 
 /* ------------Dashboard-------------------------------------- */
@@ -183,10 +239,10 @@ header {
 .cards-section {
     display: grid;
 
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     /* grid-template-rows: repeat(auto-fill,minmax(16rem,1fr)); */
     gap: 1rem;
-    grid-auto-rows: minmax(213px,1fr);
+    /* grid-auto-rows: minmax(213px,1fr); */
   
 
 }
@@ -278,3 +334,46 @@ header {
 .user-name span:first-child {
     padding-bottom:0.1rem ;
 }
+
+
+/* ---------Media queries------------ */
+
+@media (max-width: 1160px) {
+     main {
+    grid-template-rows: 1fr 6fr;
+   }
+   
+    .content-section {
+    grid-template-columns: 1fr;
+    /* grid-template-rows: repeat(auto-fill,1fr) */
+    /* grid-auto-rows: minmax(1fr); */
+    grid-template-rows: auto auto;
+   }
+
+   .content-section, .project-section,
+     .news-section {
+        height: auto; /* or set a specific height */
+    }
+    .project-section {
+        grid-row: 1/2;
+    }
+    .cards-section {
+        display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: 1rem;
+    grid-auto-rows: minmax(1fr);
+    padding: 1.2rem 1.5rem;
+    }
+   .news-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+   }
+   .trending-section {
+    padding-top: 0;
+   }
+   .trending-section ul li {
+    padding-bottom: 0.438rem;
+   }
+  }
+  
